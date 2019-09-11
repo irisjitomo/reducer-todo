@@ -40,3 +40,11 @@ ul {
   width:35%;
   margin-left: 30%;
 }
+
+.completed {
+  color:red;
+  text-decoration: line-through;
+  transform: rotate(5deg);
+  display:flex;
+  /* border: solid 1px black; */
+}

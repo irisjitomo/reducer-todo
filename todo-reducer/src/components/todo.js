@@ -1,6 +1,6 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState } from 'react';
 // import TodoAdd from './todoadd';
-import { intialState , todoReducer } from '../reducers/addTodoReducer'
+// import { intialState , todoReducer } from '../reducers/addTodoReducer'
 
 
 function Todo(props) {
@@ -12,7 +12,7 @@ function Todo(props) {
     
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(newTodo)
+        // console.log(newTodo)
         props.addTodo(newTodo)
         setNewTodo('')
     }
@@ -25,7 +25,11 @@ function Todo(props) {
 				{props.todos.map((todo) => {
 					return (
 						<ul key={todo.id}>
-							<li>{todo.item}</li>
+							<li 
+							onClick={()=> props.toggleTodo(todo.id)}
+							className={todo.completed ? 'completed' : ""}
+							>{todo.item}</li>
+                            {console.log(props.todos)}
 						</ul>
 					);
 				})}
@@ -48,6 +52,7 @@ function Todo(props) {
 					<button>Remove</button>
 				</div>
 			</form>
+            <br></br>
 		</div>
 	);
 }
