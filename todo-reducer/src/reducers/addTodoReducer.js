@@ -56,6 +56,17 @@ export const todoReducer = (state,action) => {
                   }
                 })
               };
+            case "REMOVE_COMPLETED":
+              return {
+                ...state,
+                todos: state.todos.filter(todo => {
+                   if (todo.completed === true) {
+                     return false
+                   } else {
+                     return true
+                   }
+                })
+              };
         default: 
             return state;
     }

@@ -12,11 +12,15 @@ function App() {
   const [state,dispatch] = useReducer(todoReducer,intialState )
 
   const addTodo = (item) => {
-    dispatch({ type: "UPDATE_TODO", payload: item})
+    dispatch({ type: "UPDATE_TODO", payload: item })
   }
   
   const toggleTodo = (id) => {
-    dispatch({ type: "TOGGLE_TODO", payload: id})
+    dispatch({ type: "TOGGLE_TODO", payload: id })
+  }
+
+  const removeTodo = () => {
+    dispatch({ type: "REMOVE_COMPLETED" })
   }
 
   console.log()
@@ -26,7 +30,7 @@ function App() {
         <h1>Reducer To-do</h1>
       </header>
       <div className='body'>
-        <Todo addTodo={addTodo} todos={state.todos} toggleTodo={toggleTodo}/>
+        <Todo addTodo={addTodo} todos={state.todos} toggleTodo={toggleTodo} removeTodo={removeTodo}/>
       </div>
     </div>
   );

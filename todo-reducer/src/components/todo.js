@@ -15,7 +15,12 @@ function Todo(props) {
         // console.log(newTodo)
         props.addTodo(newTodo)
         setNewTodo('')
-    }
+	}
+	
+	const Clear = event => {
+		event.preventDefault();
+		props.removeTodo();
+	}
 
 	return (
 		<div>
@@ -49,7 +54,7 @@ function Todo(props) {
                     />
 
 					<button>Submit Todo</button>
-					<button>Remove</button>
+					<button onClick={Clear}>Remove</button>
 				</div>
 			</form>
             <br></br>
