@@ -32,7 +32,8 @@ function Todo(props) {
 						<ul key={todo.id}>
 							<li 
 							onClick={()=> props.toggleTodo(todo.id)}
-							className={todo.completed ? 'completed' : ""}
+							// className={todo.completed ? 'completed' : ""}
+							style={{ textDecoration: todo.completed ? "line-through" : "none" }}
 							>{todo.item}</li>
                             {console.log(props.todos)}
 						</ul>
